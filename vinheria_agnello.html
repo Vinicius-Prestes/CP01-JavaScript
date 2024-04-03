@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='script.js'></script> <!--Adicionar o script-->
+    <title>Vinheria Agnello</title>
+  </head>
+
+  <body>
+
+    <h2>Adicionar vinho</h2>
+
+    <form id="addVinho"> <!--Formulário para adicionar o vinho desejado-->
+
+      <label for="nome">Nome:</label><br>
+      <input type="text" id="nome" name="nome"><br><br>
+      <label for="safra">Safra:</label><br>
+      <input type="number" id="safra" name="safra"><br><br>
+      <label for="tipo">Tipo:</label><br>
+      <input type="text" id="tipo" name="tipo"><br><br>
+      <label for="preco">Preço:</label><br>
+      <input type="number" id="preco" name="preco"><br><br> 
+      <button type="button" id="addVinhoButton">Adicionar vinho</button>
+
+    </form> <!--Fim do formulário-->
+
+    <h2>Vinhos Adicionados:</h2>
+
+    <ul id="vinhosList"></ul>
+
+  </body>
+
+  <script>
+/* Aqui faremos a alteração do let declarado no script.js para que ele receba as alterações do usuário*/
+    document.getElementById('addVinhoButton').addEventListener('click', function() {
+      let nome = document.getElementById('nome').value;
+      let safra = parseInt(document.getElementById('safra').value);
+      let tipo = document.getElementById('tipo').value;
+      let preco = parseFloat(document.getElementById('preco').value);
+
+/*Aqui a variável addVinho receberá as alterações e as printará para o usuário poder vê-las*/
+      addVinho(nome, safra, tipo, preco);
+      document.getElementById('vinhosList').innerHTML = '';
+      for (let i = 0; i < vinhos.length; i++) {
+        document.getElementById('vinhosList').innerHTML += '<li>Nome: ' + vinhos[i].nome + ', Safra: ' + vinhos[i].safra + ', Tipo: ' + vinhos[i].tipo + ', Preço: ' + vinhos[i].preco + '</li>';
+      }
+    });
+
+  </script>
+
+</html>
